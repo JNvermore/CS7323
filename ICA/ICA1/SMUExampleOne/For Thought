@@ -1,0 +1,12 @@
+Zeqi Guo, Kuang Yan
+
+Is this new implementation of the model more efficient? Why or Why not? 
+  No. Because it will pre-load all of the pictures, and this is a waste of memory.
+
+Is this implementation of the model scalable? Why or Why not? 
+  Yes, because all of the image (both image view and collection view) is loaded by image name, so as long as we add images into image.assets 
+  file and we can use the name to find the image.
+
+If there were 1000 images in the image.assets file, what would you change in the implementationof the model? 
+  In such condition, I prefer not pre-load all of images, because 1000 images will waste a lot of time and memory. So, based on our model,
+  which can find picture by its name, we can eaisly pre-load all of names of pictures, and then find picture with its name.
