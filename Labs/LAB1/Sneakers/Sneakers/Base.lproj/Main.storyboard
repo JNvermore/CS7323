@@ -203,9 +203,11 @@
                                 </variation>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdZ-oO-m4X">
-                                <rect key="frame" x="142" y="567" width="114" height="91"/>
+                                <rect key="frame" x="142" y="567" width="206" height="91"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="7Zl-7b-iab"/>
+                                    <constraint firstAttribute="width" constant="114" id="7Zl-7b-iab">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="206"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="91" id="8Qe-rf-Qib"/>
                                     <constraint firstAttribute="height" constant="91" id="Pyp-mC-kUR"/>
                                     <constraint firstAttribute="height" constant="91" id="Slk-Zs-yRm"/>
@@ -553,7 +555,9 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="6.3333333333333286"/>
                             </constraint>
                             <constraint firstItem="oSM-wx-2n2" firstAttribute="trailing" secondItem="x5g-qp-h7K" secondAttribute="trailing" constant="27" id="Uc4-Xh-n3J"/>
-                            <constraint firstItem="HdZ-oO-m4X" firstAttribute="trailing" secondItem="6Fj-qg-mMy" secondAttribute="trailing" id="V1R-Sg-y74"/>
+                            <constraint firstItem="HdZ-oO-m4X" firstAttribute="trailing" secondItem="6Fj-qg-mMy" secondAttribute="trailing" id="V1R-Sg-y74">
+                                <variation key="heightClass=regular-widthClass=compact" constant="92"/>
+                            </constraint>
                             <constraint firstItem="EL5-5c-ueI" firstAttribute="top" secondItem="ulb-pr-njC" secondAttribute="bottom" constant="11" id="W83-pe-xOq">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-317"/>
                                 <variation key="heightClass=regular-widthClass=compact" constant="9"/>
@@ -660,7 +664,9 @@
                             <constraint firstItem="HdZ-oO-m4X" firstAttribute="centerY" secondItem="XLH-jR-eNM" secondAttribute="centerY" id="sKz-Mc-saU">
                                 <variation key="heightClass=compact-widthClass=compact" constant="38"/>
                             </constraint>
-                            <constraint firstItem="HdZ-oO-m4X" firstAttribute="centerX" secondItem="ukC-NL-sYy" secondAttribute="centerX" id="tIC-n0-SFO"/>
+                            <constraint firstItem="HdZ-oO-m4X" firstAttribute="centerX" secondItem="ukC-NL-sYy" secondAttribute="centerX" id="tIC-n0-SFO">
+                                <variation key="heightClass=regular-widthClass=compact" constant="45.833333333333371"/>
+                            </constraint>
                             <constraint firstItem="x5g-qp-h7K" firstAttribute="leading" secondItem="ukC-NL-sYy" secondAttribute="trailing" constant="32" id="tpM-bk-Onq"/>
                             <constraint firstItem="b5i-D5-8TY" firstAttribute="top" secondItem="hPy-FZ-Bq9" secondAttribute="bottom" constant="6" id="u6X-68-cFc"/>
                             <constraint firstItem="ulb-pr-njC" firstAttribute="leading" secondItem="5C0-86-j7b" secondAttribute="leadingMargin" id="u8I-u8-bli"/>
@@ -976,7 +982,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvG-tO-YLA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1202.2167487684731" y="252"/>
+            <point key="canvasLocation" x="1200.8" y="251.97044334975371"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="jdS-eG-sTB">

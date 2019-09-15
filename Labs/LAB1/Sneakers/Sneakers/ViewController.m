@@ -123,7 +123,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.productImageView.image = [self.myImageModel getImageWithName:[[self.myProducts getColorsWithName:self.productName] objectAtIndex:0]];
     // This label.text is used to pass a value of price
+    if([self.colorLabel.text isEqualToString:@"Color"]){
+        self.colorLabel.text = [[self.myProducts getColorsWithName:self.productName] objectAtIndex:0];
+    }
     self.colorLabel.hidden = true;
     self.priceLabel.text = [NSString stringWithFormat:@"%d", (int)[self.myProducts getPriceWithName:self.productName]];
     
@@ -146,10 +150,13 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     // find image with row
+    return [[self.myProducts getColorsWithName:self.productName] objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSArray* colors = [self.myProducts getColorsWithName:self.productName];
     self.productImageView.image = [self.myImageModel getImageWithName:[colors objectAtIndex:row]];
     self.colorLabel.text = [colors objectAtIndex:row];
-    return [colors objectAtIndex:row];
 }
 
 // segue to next view
