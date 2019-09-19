@@ -77,7 +77,12 @@
 // ------------------------ Stepper ---------------------------
 - (IBAction)stepperClick:(id)sender {
     self.amountLabel.text = [NSString stringWithFormat:@"%d", (int)_amountStepper.value];
-    self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int)[self.myProducts getPriceWithName:self.productName] * (int)_amountStepper.value];
+    if(self.moneySegment.selectedSegmentIndex == 0){
+        self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int)[self.myProducts getPriceWithName:self.productName] * (int)_amountStepper.value];
+    }else if(self.moneySegment.selectedSegmentIndex == 1){
+        self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int)[self.myProducts getPriceWithName:self.productName] * (int)_amountStepper.value * 7];
+    }
+    
 }
 
 // ---------------- Check Out Button ------------------
