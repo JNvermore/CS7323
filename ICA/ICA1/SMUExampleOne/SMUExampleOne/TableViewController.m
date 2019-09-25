@@ -14,6 +14,8 @@
 
 @property (strong,nonatomic) ImageModel* myImageModel;
 
+//@property float 
+
 @end
 
 @implementation TableViewController

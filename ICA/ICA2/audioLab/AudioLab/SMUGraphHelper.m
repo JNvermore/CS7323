@@ -324,14 +324,13 @@ typedef struct {
 
 -(void) setFullScreenBounds
 {
-    [bounds setBoundsWithTop:1.0 bottom:-1.0 left:-1.0 right:1.0];
+    [bounds setBoundsWithTop:0.5 bottom:-1.0 left:-1.0 right:1.0];
 }
 
 -(void) setScreenBoundsTopHalf
 {
     [bounds setBoundsWithTop:1.0 bottom:0.0 left:-1.0 right:1.0];
 }
-
 -(void) setScreenBoundsBottomHalf
 {
     [bounds setBoundsWithTop:0.0 bottom:-1.0 left:-1.0 right:1.0];

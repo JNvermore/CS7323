@@ -11,6 +11,9 @@
 
 @interface ViewController : GLKViewController
 
+{
+    float micData[20];
+}
 
 @end
 

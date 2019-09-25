@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181542A6233A8C0300B7B0F7 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181542A5233A8C0300B7B0F7 /* TableViewController.m */; };
+		181542A9233AAE2400B7B0F7 /* AudioFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 181542A8233AAE2400B7B0F7 /* AudioFileReader.m */; };
 		B6BD9E1F1D6E384A0009AB3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD9E1E1D6E384A0009AB3F /* main.m */; };
 		B6BD9E221D6E384A0009AB3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD9E211D6E384A0009AB3F /* AppDelegate.m */; };
 		B6BD9E251D6E384A0009AB3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD9E241D6E384A0009AB3F /* ViewController.m */; };
@@ -40,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181542A4233A8C0300B7B0F7 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		181542A5233A8C0300B7B0F7 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		181542A7233AAE2400B7B0F7 /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioFileReader.h; path = AudioDSPUtils/AudioFileReader.h; sourceTree = SOURCE_ROOT; };
+		181542A8233AAE2400B7B0F7 /* AudioFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioFileReader.m; path = AudioDSPUtils/AudioFileReader.m; sourceTree = SOURCE_ROOT; };
 		B6BD9E1A1D6E384A0009AB3F /* AudioLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BD9E1E1D6E384A0009AB3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6BD9E201D6E384A0009AB3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,7 +127,11 @@
 				B6BD9E231D6E384A0009AB3F /* ViewController.h */,
 				B6BD9E241D6E384A0009AB3F /* ViewController.m */,
 				B6BD9E261D6E384A0009AB3F /* Main.storyboard */,
+				181542A4233A8C0300B7B0F7 /* TableViewController.h */,
+				181542A5233A8C0300B7B0F7 /* TableViewController.m */,
 				B6BD9E291D6E384A0009AB3F /* Assets.xcassets */,
+				181542A7233AAE2400B7B0F7 /* AudioFileReader.h */,
+				181542A8233AAE2400B7B0F7 /* AudioFileReader.m */,
 				B6BD9E2B1D6E384A0009AB3F /* LaunchScreen.storyboard */,
 				B6BD9E2E1D6E384A0009AB3F /* Info.plist */,
 				B6BD9E1D1D6E384A0009AB3F /* Supporting Files */,
@@ -254,6 +264,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -306,9 +317,11 @@
 				B6BD9E591D6E43140009AB3F /* CircularBuffer.m in Sources */,
 				B6BD9E641D6F4BA90009AB3F /* FFTHelper.m in Sources */,
 				B6BD9E531D6E398F0009AB3F /* Novocaine.m in Sources */,
+				181542A9233AAE2400B7B0F7 /* AudioFileReader.m in Sources */,
 				B6BD9E251D6E384A0009AB3F /* ViewController.m in Sources */,
 				B6BD9E221D6E384A0009AB3F /* AppDelegate.m in Sources */,
 				B6BD9E1F1D6E384A0009AB3F /* main.m in Sources */,
+				181542A6233A8C0300B7B0F7 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
