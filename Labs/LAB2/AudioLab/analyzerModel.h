@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setFrequency:(int)inputFreq;
 -(void)playAudio;
 -(void)stopAudio;
+-(float*)addZeroAtHeadAndTailForArray:(float*)originalArray;
+-(float*)getPeaksFromModifiedArray:(float*)array;
 @end
 
 NS_ASSUME_NONNULL_END

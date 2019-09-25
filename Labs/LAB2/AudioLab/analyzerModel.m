@@ -9,6 +9,10 @@
 #import "analyzerModel.h"
 
 
+#define BUFFER_SIZE 2048*4
+#define ORIGINAL_ARRAY_SIZE BUFFER_SIZE*2
+#define WINDOW_SIZE 3
+
 @implementation analyzerModel
 
 #pragma mark Lazy Instantiation
@@ -66,4 +70,40 @@
     [self.audioManager setOutputBlock:nil];
 }
 
+-(float*)addZeroAtHeadAndTailForArray:(float*)originalArray{
+    // create a array with size 2 more than fftMagnitude, and add 0 to both head and tail
+    
+    float* modifiedArray = malloc(ORIGINAL_ARRAY_SIZE+2);
+    
+    modifiedArray[0] = 0;   // head
+    for(int i=0; i<ORIGINAL_ARRAY_SIZE; i++){   // body
+        modifiedArray[i+1] = originalArray[i];
+    }
+    modifiedArray[ORIGINAL_ARRAY_SIZE+1] = 0;   // tail
+    
+    return modifiedArray;
+}
+
+
+-(float*)getPeaksFromModifiedArray:(float*)array{
+    
+    // array for store peak values in a window
+    float* peaksArray = malloc(ORIGINAL_ARRAY_SIZE+2);
+    
+    // find peak in a window
+    for(int i=0; i<ORIGINAL_ARRAY_SIZE; i++){
+        NSLog(@"i: %d", i);
+//        float max = -10000000;
+//        for(int j=i; j<j+WINDOW_SIZE; j++){
+//            NSLog(@"j: %d", j);
+//            if(array[j]>max){
+//                max = array[j];
+//                NSLog(@"j: %d", j);
+//            }
+//        }
+        
+//        peaksArray[i] = max;
+    }
+    return peaksArray;
+}
 @end

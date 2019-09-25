@@ -11,6 +11,7 @@
 #import "CircularBuffer.h"
 #import "SMUGraphHelper.h"
 #import "FFTHelper.h"
+#import "analyzerModel.h"
 
 #define BUFFER_SIZE 2048*4
 
@@ -20,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UISwitch *lockInSwitch;
 @property (strong, nonatomic) SMUGraphHelper *graphHelper;
 @property (strong, nonatomic) FFTHelper *fftHelper;
+@property (strong, nonatomic) analyzerModel *analyzerModel;
+
+@property float* arrayLocked;
+@property float* addedZeroArray;
 @end
 
 
@@ -60,6 +65,14 @@
     return _fftHelper;
 }
 
+- (analyzerModel *)analyzerModel{
+    if(!_analyzerModel){
+        _analyzerModel = [analyzerModel sharedInstance];
+    }
+    return _analyzerModel;
+}
+
+
 
 #pragma mark VC Life Cycle
 - (void)viewDidLoad {
@@ -81,35 +94,41 @@
 //  override the GLKViewController update function, from OpenGLES
 - (void)update{
     // just plot the audio stream
+    
     if (self.lockInSwitch.isOn == false){
-    // get audio stream data
-    float* arrayData = malloc(sizeof(float)*BUFFER_SIZE);
-    float* fftMagnitude = malloc(sizeof(float)*BUFFER_SIZE/2);
+        // get audio stream data
+        float* arrayData = malloc(sizeof(float)*BUFFER_SIZE);
+        float* fftMagnitude = malloc(sizeof(float)*BUFFER_SIZE/2);
+        
+        [self.buffer fetchFreshData:arrayData withNumSamples:BUFFER_SIZE];
     
+        //send off for graphing
+        [self.graphHelper setGraphData:arrayData
+                        withDataLength:BUFFER_SIZE
+                         forGraphIndex:0];
     
-    [self.buffer fetchFreshData:arrayData withNumSamples:BUFFER_SIZE];
+        // take forward FFT
+        [self.fftHelper performForwardFFTWithData:arrayData
+                       andCopydBMagnitudeToBuffer:fftMagnitude];
     
-    //send off for graphing
-    [self.graphHelper setGraphData:arrayData
-                    withDataLength:BUFFER_SIZE
-                     forGraphIndex:0];
+        // graph the FFT Data
+        [self.graphHelper setGraphData:fftMagnitude
+                        withDataLength:BUFFER_SIZE/2
+                         forGraphIndex:1
+                     withNormalization:64.0
+                        withZeroValue:-60];
     
-    // take forward FFT
-    [self.fftHelper performForwardFFTWithData:arrayData
-                   andCopydBMagnitudeToBuffer:fftMagnitude];
+        [self.graphHelper update]; // update the graph
     
-    // graph the FFT Data
-    [self.graphHelper setGraphData:fftMagnitude
-                    withDataLength:BUFFER_SIZE/2
-                     forGraphIndex:1
-                 withNormalization:64.0
-                     withZeroValue:-60];
-    
-    [self.graphHelper update]; // update the graph
-//    [fftMagnitude w]
-//    NSLog(@"%.3f %.3f  ",fftMagnitude[0],fftMagnitude[1]);
-    free(arrayData);
-    free(fftMagnitude);
+        self.arrayLocked = fftMagnitude;
+        free(arrayData);
+        free(fftMagnitude);
+    }else{
+        // ------------ ERROR HAPPENED -------------------
+        // malloc: Incorrect checksum for freed object 0x7fa8068eb800: probably modified after being freed.
+        float* fftMagnitudeAddZero = [self.analyzerModel addZeroAtHeadAndTailForArray:self.arrayLocked];
+        
+        //    float *peaksArray = [self.analyzerModel getPeaksFromModifiedArray:fftMagnitudeAddZero];
     }
 }
 
